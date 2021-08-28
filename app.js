@@ -1,10 +1,14 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
+
 const { google } = require("googleapis");
 
 const app = express();
 const port = 8000;
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   const auth = new google.auth.GoogleAuth({
